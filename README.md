@@ -6,13 +6,14 @@ MCP (Model Context Protocol) server for controlling TouchDesigner from AI coding
 
 ### 1. TouchDesigner Side
 
-1. Create a WebServer DAT
-2. Set Port to `9980`
-3. Get the callbacks file path:
+1. Install the callbacks file into your TD project:
    ```bash
-   uvx td-mcp bridge-path
+   cd /path/to/your-td-project
+   uvx td-mcp install
    ```
-4. Set the WebServer DAT's callbacks File parameter to the output path
+2. Create a WebServer DAT in TouchDesigner
+3. Set Port to `9980`
+4. Set the WebServer DAT's callbacks File parameter to `td_mcp_callbacks.py`
 5. Toggle Active ON
 
 ### 2. Agent Side
