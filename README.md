@@ -8,8 +8,12 @@ MCP (Model Context Protocol) server for controlling TouchDesigner from AI coding
 
 1. Create a WebServer DAT
 2. Set Port to `9980`
-3. Paste the contents of `td_bridge/webserver_callbacks.py` into the WebServer DAT callbacks
-4. Toggle Active ON
+3. Get the callbacks file path:
+   ```bash
+   uvx td-mcp bridge-path
+   ```
+4. Set the WebServer DAT's callbacks File parameter to the output path
+5. Toggle Active ON
 
 ### 2. Agent Side
 
@@ -21,23 +25,6 @@ MCP (Model Context Protocol) server for controlling TouchDesigner from AI coding
     "touchdesigner": {
       "command": "uvx",
       "args": ["td-mcp"],
-      "env": {
-        "TD_HOST": "127.0.0.1",
-        "TD_PORT": "9980"
-      }
-    }
-  }
-}
-```
-
-#### Local Development (before PyPI publish)
-
-```json
-{
-  "mcpServers": {
-    "touchdesigner": {
-      "command": "uv",
-      "args": ["run", "--directory", "/path/to/td-mcp", "python", "-m", "td_mcp"],
       "env": {
         "TD_HOST": "127.0.0.1",
         "TD_PORT": "9980"
